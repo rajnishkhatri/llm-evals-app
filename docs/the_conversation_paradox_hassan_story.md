@@ -31,7 +31,7 @@ The story begins not with a failure, but with a room full of people who believed
 
 Hassan Mahmoud stood at the podium in the Grand Ballroom of the Moscone Center, looking out at seven hundred faces that represented the entirety of the LLM evaluation industry. Behind him, projected twenty feet high, was a visualization he'd spent three months creating.
 
-![Multi-Turn Evaluation Mind Map](assets/multiturn_mind_map.png)
+![Multi-Turn Evaluation Mind Map](./assets/multiturn_mind_map.png)
 
 The mind map showed the landscape of multi-turn conversation evaluation: benchmarks branching into methodologies, methodologies connecting to failure modes, failure modes linking to metrics. It was a cartography of confusion.
 
@@ -529,7 +529,7 @@ Legal: Compositional failure. The model could handle each challenge separately b
 
 Hassan drew five layers, like an archaeological dig:
 
-![Drilling to Bedrock: The Five Layers](assets/drilling_to_bedrock_overview.png)
+![Drilling to Bedrock: The Five Layers](./assets/drilling_to_bedrock_overview.png)
 
 **Layer 1 (Surface):** High satisfaction scores, good benchmarks, happy customers—until you look deeper.
 
@@ -607,7 +607,7 @@ Hassan didn't waste time.
 
 He advanced the slide:
 
-![Axiom 4: N-1 Simulator for Memory Testing](assets/axiom_4_n1_simulator.png)
+![Axiom 4: N-1 Simulator for Memory Testing](./assets/axiom_4_n1_simulator.png)
 
 "This is the N-1 prompt sampling mechanism. You truncate the conversation one turn before the failure point. You regenerate the model's response 20 times. You measure how often it retains the critical constraint from the earlier turn. If retention is below 50%, you have a memory failure—the information is genuinely not being preserved in context. If retention is above 80%, you have a reasoning failure—the model sees the information but makes the wrong inference."
 
@@ -643,7 +643,7 @@ Another hand. Hassan pointed.
 
 Hassan advanced to the next slide:
 
-![Axiom 3: Single-Turn Isolator for Debugging](assets/axiom_3_single_turn_isolator.png)
+![Axiom 3: Single-Turn Isolator for Debugging](./assets/axiom_3_single_turn_isolator.png)
 
 "This is the single-turn reduction protocol. When Jamie's team at CloudSync detected a contradiction—the model giving two different answers about refund policy—they used this to figure out whether it was a retrieval problem or a memory problem."
 
@@ -722,7 +722,7 @@ He shared his screen.
 
 ### Mechanism 1: N-1 Prompt Sampling
 
-![N-1 Prompt Sampling Mechanism](assets/mechanism_n1_prompt_sampling.png)
+![N-1 Prompt Sampling Mechanism](./assets/mechanism_n1_prompt_sampling.png)
 
 ```python
 # N-1 Prompt Sampling: Memory Failure Detection
@@ -860,9 +860,9 @@ Please respond to the user query while respecting all context provided above.
 
 Hassan advanced to the next slides:
 
-![Failure Isolation Flowchart](assets/mechanism_failure_isolation_flowchart.png)
+![Failure Isolation Flowchart](./assets/mechanism_failure_isolation_flowchart.png)
 
-![Failure Isolation Detailed Breakdown](assets/mechanism_failure_isolation_detailed.png)
+![Failure Isolation Detailed Breakdown](./assets/mechanism_failure_isolation_detailed.png)
 
 "The third mechanism is about production efficiency. You can't run frontier models on every evaluation. It's too expensive. But you also can't use only small models—they miss edge cases."
 
@@ -1002,7 +1002,7 @@ Hassan stepped up to the podium.
 
 ### Axiom 1: The Goal
 
-![Axiom 1: Session-Level Goal is Primary](assets/axiom_1_session_level_goal.png)
+![Axiom 1: Session-Level Goal is Primary](./assets/axiom_1_session_level_goal.png)
 
 "**The session is the unit that matters.**
 
@@ -1020,7 +1020,7 @@ Everything else is diagnostic."
 
 ### Axiom 2: The Efficiency Filter
 
-![Axiom 2: Efficiency Filter](assets/axiom_2_efficiency_filter.png)
+![Axiom 2: Efficiency Filter](./assets/axiom_2_efficiency_filter.png)
 
 "**Use turn-level evaluation as a filter, not a monitor.**
 
@@ -1036,7 +1036,7 @@ Monitor at the session. Debug at the turn."
 
 ### Axiom 3: The Isolation Test
 
-![Axiom 3: Single-Turn Isolator](assets/axiom_3_single_turn_isolator.png)
+![Axiom 3: Single-Turn Isolator](./assets/axiom_3_single_turn_isolator.png)
 
 "**Single-turn reduction is your doubly decisive test.**
 
@@ -1054,7 +1054,7 @@ This test both confirms and eliminates hypotheses. It's the first step in every 
 
 ### Axiom 4: The Memory Test
 
-![Axiom 4: N-1 Simulator](assets/axiom_4_n1_simulator.png)
+![Axiom 4: N-1 Simulator](./assets/axiom_4_n1_simulator.png)
 
 "**N-1 prompt sampling measures memory retention.**
 
@@ -1072,7 +1072,7 @@ This gives you statistical confidence in your diagnosis and a clear metric to op
 
 ### Axiom 5: The Composition Law
 
-![Axiom 5: Compositional Compound](assets/axiom_5_compositional_compound.png)
+![Axiom 5: Compositional Compound](./assets/axiom_5_compositional_compound.png)
 
 "**Abilities don't add. They compound.**
 
