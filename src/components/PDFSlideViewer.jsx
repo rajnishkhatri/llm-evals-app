@@ -6,9 +6,9 @@ import 'react-pdf/dist/Page/TextLayer.css';
 // Configure PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const PDFSlideViewer = ({ presentation, onBack }) => {
+const PDFSlideViewer = ({ presentation, initialSlide = 1, onBack }) => {
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(initialSlide);
   const [isLoading, setIsLoading] = useState(true);
   const [showOverview, setShowOverview] = useState(false);
   const [containerWidth, setContainerWidth] = useState(800);
@@ -17,10 +17,32 @@ const PDFSlideViewer = ({ presentation, onBack }) => {
   const touchStartX = useRef(0);
   const touchStartY = useRef(0);
 
+  // Sync URL hash when slide changes
+  useEffect(() => {
+    if (presentation?.id && pageNumber) {
+      const newHash = `#/${presentation.id}/${pageNumber}`;
+      if (window.location.hash !== newHash) {
+        // Use replaceState to avoid adding to history on every slide change
+        history.replaceState(null, '', newHash);
+      }
+    }
+  }, [presentation?.id, pageNumber]);
+
+  // Update pageNumber if initialSlide changes (e.g., from browser back/forward)
+  useEffect(() => {
+    setPageNumber(initialSlide);
+  }, [initialSlide]);
+
   // Handle document load success
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const onDocumentLoadSuccess = ({ numPages: loadedNumPages }) => {
+    setNumPages(loadedNumPages);
     setIsLoading(false);
+    // Ensure initialSlide is within bounds
+    if (initialSlide > loadedNumPages) {
+      setPageNumber(loadedNumPages);
+    } else if (initialSlide < 1) {
+      setPageNumber(1);
+    }
   };
 
   // Navigation functions
