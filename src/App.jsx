@@ -13,6 +13,16 @@ const presentations = [
     icon: '🔬',
     storyDoc: 'the_conversation_paradox_hassan_story.md',
     guideDoc: '06_multi_turn_conversation_evaluation.md',
+  },
+  {
+    id: 'kappa-framework',
+    title: 'LLM Application Collaborative Evals & IAA',
+    description: 'Inter-Annotator Agreement and Cohens Kappa for Gold Standard AI',
+    pdfUrl: '/pdfs/Kappa_Framework_for_Gold_Standard_AI.pdf',
+    totalPages: 15,
+    icon: '🤝',
+    storyDoc: 'the_agreement_paradox_barbara_plank_story.md',
+    guideDoc: '04_collaborative_evaluation_practices.md',
   }
 ];
 
